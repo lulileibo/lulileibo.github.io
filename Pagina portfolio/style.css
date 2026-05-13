@@ -1,0 +1,306 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* --- HERO CON FILTRO BEIGE / GRIS --- */
+.hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;             /* Activa el modo flexible */
+    flex-direction: column;    /* Alinea los elementos uno abajo del otro */
+    justify-content: center;   /* Centra verticalmente */
+    align-items: center;       /* Centra horizontalmente */
+    text-align: center;        /* Centra el texto por dentro */
+    
+    background-image: linear-gradient(rgba(225, 219, 209, 0.4), rgba(188, 180, 168, 0.5)), 
+                      url('fondo.jpg'); 
+    background-size: cover;
+    background-position: center;
+    margin: 0;
+    padding: 0;
+}
+
+.hero-contenido {
+    z-index: 10;
+    color: #333; /* Color del texto para que resalte sobre el rosa */
+}
+
+.hero-contenido h1 {
+    font-size: 80px; /* Un tamaño imponente para tu nombre */
+    margin-bottom: 10px;
+    font-family: 'Great Vibes', cursive; /* O la tipografía que estés usando */
+}
+
+.hero-contenido p {
+    font-size: 20px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+}
+
+.hero-botones {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.overlay {
+    position: absolute;
+    width: 45%;
+    height: 70%;
+    background-color: #a8a19b;
+    opacity: 0.6;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.contenido {
+    /* IMPORTANTE: Eliminamos position absolute y left que movían todo de costado */
+    position: relative; 
+    z-index: 10;
+    width: 100%;
+    max-width: 1200px; /* Evita que el texto toque los bordes en pantallas chicas */
+}
+
+.contenido h2 {
+    font-size: 170px;
+    font-family: 'Great Vibes', cursive;
+    color: #222;
+    margin: 0;
+    line-height: 1.2;
+}
+
+.botones {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center; /* Centra los botones en el medio */
+    gap: 30px;
+}
+
+.botones a {
+    text-decoration: none;
+    background-color: #d1c7b7; 
+    color: #222;
+    padding: 15px 40px;
+    border-radius: 50px;
+    font-size: 30px;
+    font-family: 'Great Vibes', cursive;
+    transition: 0.3s;
+}
+
+.botones a:hover {
+    background-color: #a8a19b;
+}
+
+/* SECCIONES CORREGIDAS */
+.seccion {
+    min-height: 100vh; /* Permite que la sección crezca */
+    height: auto;      /* Clave para que no se superpongan */
+    padding: 100px 10%;
+    background-color: #f5f5f5;
+    display: flex;
+    flex-direction: column;
+}
+
+.seccion h2 {
+    font-size: 50px;
+    margin-bottom: 20px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* FILAS (Sobre mí y Proyectos) */
+.fila {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+    margin-bottom: 50px;
+}
+
+.fila.reverse {
+    flex-direction: row-reverse;
+}
+
+.texto { width: 50%; }
+.texto p { font-size: 20px; line-height: 1.6; font-family: 'Montserrat', sans-serif; }
+
+.imagen-contenedor {
+    width: 50%;
+    /* Mantenemos los 300px, pero podés subirlo a 400px si querés ver más foto */
+    height: 400px; 
+    overflow: hidden; /* Corta lo que sobre si la foto no es cuadrada */
+    border-radius: 10px;
+}
+
+.imagen-contenedor img {
+    width: 100%;
+    height: 100%;
+    /* Esta propiedad es mágica: ajusta la foto sin deformarla */
+    object-fit: cover; 
+    /* Si querés podés ponerle la opacidad para mantener el estilo anterior */
+    opacity: 0.9; 
+}
+
+/* CONTENEDOR DE PROYECTOS */
+.contenedor-proyectos-principal {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 60px;
+    justify-content: center;
+    padding: 50px 0;
+}
+
+.grupo-proyecto {
+    display: flex;
+    gap: 15px;
+}
+
+.grupo-proyecto img {
+    width: 250px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: 0.3s;
+}
+
+.grupo-proyecto img:hover {
+    transform: scale(1.05);
+}
+
+/* ESTUDIOS */
+.lista-estudios {
+    list-style: none;
+    margin-top: 40px;
+}
+
+.lista-estudios li {
+    margin-bottom: 40px;
+    border-left: 4px solid #a8a19b;
+    padding-left: 20px;
+}
+
+.lista-estudios h3 { font-size: 28px; font-family: 'Montserrat', sans-serif; }
+.lista-estudios p { font-size: 20px; font-family: 'Montserrat', sans-serif; }
+.lista-estudios span { color: gray; }
+
+/* LOGROS */
+#logros { background-color: #f5f5f5; padding-bottom: 100px; }
+.logros-introduccion { text-align: center; margin-bottom: 50px; font-size: 1.1rem; }
+
+.certificados-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-bottom: 60px;
+}
+
+.certificado-item {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    overflow: hidden; /* Esto es clave para que la foto no tape los bordes redondeados al agrandarse */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.certificado-item img { 
+    width: 100%; 
+    height: 200px; 
+    object-fit: cover; 
+    transition: transform 0.3s ease; /* Hace que el zoom sea suave */
+}
+
+/* Efecto al pasar el mouse */
+.certificado-item:hover {
+    transform: translateY(-5px); /* Levanta un poquito la tarjeta */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1); /* Intensifica la sombra */
+}
+
+.certificado-item:hover img {
+    transform: scale(1.1); /* Agranda la imagen un 10% */
+}
+
+.certificado-info { 
+    padding: 20px; 
+    background: white; /* Asegura que el texto tape la imagen si hay solapamiento */
+    position: relative;
+    z-index: 2;
+}
+
+/* BOTÓN VOLVER */
+.volver {
+    align-self: flex-end;
+    margin-top: auto;
+    text-decoration: none;
+    background-color: #a8a19b;
+    color: black;
+    padding: 10px 25px;
+    border-radius: 30px;
+    font-family: 'Great Vibes', cursive;
+    font-size: 25px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .fila, .fila.reverse { flex-direction: column; }
+    .texto, .imagen { width: 100%; }
+    .contenido h2 { font-size: 80px; }
+}
+/* Header fijo en la parte superior */
+.barra-superior {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    background-color: rgba(207, 182, 175, 0.9); /* El rosita de tu overlay */
+    z-index: 1000; /* Para que esté por encima de todo */
+    display: flex;
+    align-items: center;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.header-contenido {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.links-izquierda span {
+    font-size: 14px;
+    color: #333;
+    font-weight: bold;
+}
+
+.link-cv {
+    text-decoration: none;
+    color: #333;
+    font-weight: 700;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: 0.3s;
+    border-bottom: 2px solid transparent;
+}
+
+.link-cv:hover {
+    color: white;
+    border-bottom: 2px solid white;
+}
+
+/* Ajuste para que el Hero no quede tapado por el header */
+.hero {
+    padding-top: 50px; 
+}
